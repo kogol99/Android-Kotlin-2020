@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">My BMI</string>
+    <string name="app_history_name">My BMI History</string>
+    <string name="mass_kg">Mass [kg]:</string>
+    <string name="mass_lb">Mass [lb]:</string>
+    <string name="count_bmi">Count BMI</string>
+    <string name="empty_value">0.00</string>
+    <string name="height_is_empty">Please provide value</string>
+    <string name="mass_is_empty">Please provide value</string>
+    <string name="mass_range_kg">"The allowed range is 30 &lt; kg &lt; 150"</string>
+    <string name="mass_range_lb">"The allowed range is 66 &lt; lb &lt; 330"</string>
+    <string name="height_range_cm">"The allowed range is 100 &lt; cm &lt; 250"</string>
+    <string name="height_range_in">"The allowed range is 40 &lt; inc &lt; 100"</string>
+    <string name="height_cm">Height [cm]:</string>
+    <string name="height_inc">Height [inc]:</string>
+    <string name="menu_item_cm_kg">cm / kg</string>
+    <string name="menu_item_in_lbs">in / lbs</string>
+    <string name="menu_item_history">History</string>
+    <string name="bmi_16">Wygłodzenie może wystąpić u osób, które stosują niskokaloryczną dietę (np. w czasie odchudzania) lub są wegetarianami. Jak wynika z badań, wśród osób stosujących dietę wegetariańską, a zwłaszcza jej radykalne odmiany, istnieje duże ryzyko niedożywienia białkowego. Ponadto u tych osób zwiększa się również ryzyko niedoboru witaminy B12 i żelaza.</string>
+    <string name="bmi_16_17">Przyczyny wychudzenia są różne, może to być: bezwzględny niedobór pożywienia w stosunku do potrzeb organizmu, zwiększone i nie pokryte zapotrzebowanie kaloryczne w okresie wzrostu, choroby wyniszczające, jak np. gruźlica, pasożyty, nadczynność tarczycy, nowotwory złośliwe, wrzody żołądka, także zaburzenia trawienne i złe odżywianie, niemożność wykorzystania substancji odżywczych przez organizm.</string>
+    <string name="bmi_17_185">Przyczyny niedowagi są bardzo różne. Nie można ich ograniczać jedynie do silnie redukcyjnej diety, diety eliminacyjnej, wegetariańskiej lub wegańskiej. Trzeba jednak pamiętać, że nieustanna redukcja i diety eliminacyjne nie sprzyjają zdrowiu organizmu. W przypadku wegan i wegetarian wskazana jest natomiast odpowiednia suplementacja niektórych składników odżywczych.</string>
+    <string name="bmi_185_25">Należna masa ciała (nmc) to inaczej idealna lub pożądana masa ciała, taka, która chroni zarówno przed niedożywieniem, jak i nadwagą i otyłością. Jest to optymalna masa ciała, która pozwala na zachowanie zdrowia i prawidłowe funkcjonowanie. Jeśli masz prawidłową masę ciała, to istnieje zaledwie niewielkie ryzyko wystąpienia chorób cywilizacyjnych, takich jak choroby serca, cukrzyca typu 2 czy niektóre nowotwory.</string>
+    <string name="bmi_25_30">Badania zjawiska nadwagi i otyłości wykazują, że u pacjentów, u których obserwuje się nadmierny przyrost tkanki tłuszczowej oraz znaczne zwiększenie masy ciała, często występują nieprawidłowe modele związane z odżywianiem oraz ogólnie rozumianym stylem życia. Wiele osób zmagających się z nadwagą nie przywiązuje w ogóle uwagi, lub przywiązuje zbyt małą uwagę, do tego co je, w jakich ilościach, w jakich odstępach czasu.</string>
+    <string name="bmi_30_35">Nadwaga lub otyłość to stany, w przebiegu których w organizmie zmagazynowany jest nadmiar tkanki tłuszczowej, co przekłada się na zwiększoną masę ciała. Nadwaga jest pierwszym efektem nadmiernego odkładania się nadwyżki energii w postaci tłuszczu w organizmie, co przy braku działań korygujących w żywieniu i zakresie aktywności fizycznej często prowadzi do otyłości.</string>
+    <string name="bmi_35_40">Przyczyn otyłości jest naprawdę wiele i są one zróżnicowane. U każdego chorego może być ich kilka, a nawet kilkanaście. Określenie czynnika/czynników, wywołujących otyłość to proces długi i wymaga u każdego pacjenta indywidualnej diagnostyki, a późniejsze efektywne leczenie spersonalizowanych metod i narzędzi. Co więcej, badania nad otyłością ujawniają wciąż nowe przyczyny, które mogą doprowadzić do powstania tej choroby.</string>
+    <string name="bmi_40">Przyczyn otyłości jest naprawdę wiele i są one zróżnicowane. U każdego chorego może być ich kilka, a nawet kilkanaście. Określenie czynnika/czynników, wywołujących otyłość to proces długi i wymaga u każdego pacjenta indywidualnej diagnostyki, a późniejsze efektywne leczenie spersonalizowanych metod i narzędzi. Co więcej, badania nad otyłością ujawniają wciąż nowe przyczyny, które mogą doprowadzić do powstania tej choroby.</string>
+</resources>

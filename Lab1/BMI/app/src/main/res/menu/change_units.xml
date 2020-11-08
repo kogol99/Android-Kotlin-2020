@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/cm_kg"
+        android:enabled="true"
+        android:title="@string/menu_item_cm_kg" />
+    <item
+        android:id="@+id/in_lbs"
+        android:checkable="false"
+        android:title="@string/menu_item_in_lbs" />
+    <item
+        android:id="@+id/history"
+        android:checkable="false"
+        android:title="@string/menu_item_history" />
+</menu>
