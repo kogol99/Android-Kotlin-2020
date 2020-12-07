@@ -15,16 +15,14 @@ import kotlinx.android.synthetic.main.fragment_main.*
 class MainFragment : Fragment() {
 
     private lateinit var listAdapter: ShopListRecyclerAdapter
-    private var favouritesIdList: ArrayList<String> = ArrayList()
-    private var favouritesList: ArrayList<Game> = ArrayList()
-    private var safeRecyclerList: ArrayList<Game> = ArrayList()
     private var isActiveFilterPc: Boolean = false
     private var isActiveFilterPs4: Boolean = false
     private var isActiveFilterXone: Boolean = false
     private var isActiveFilterFav: Boolean = false
 
-    //@TODO
-    //@do zrobienia zapisywanie w sesji danej tablicy
+    companion object {
+        private var listViewModel: MainViewModel = MainViewModel()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +36,7 @@ class MainFragment : Fragment() {
         initRecyclerView()
         addDataSet()
         checkEmptyListToVisibilityList()
-
+        addNewListToAdapter(listViewModel.getProductList())
         B_filtr_pc.setOnClickListener{
             showFiltr("PC")
         }
@@ -72,29 +70,20 @@ class MainFragment : Fragment() {
             }
         }
 
-        if(isActiveFilterPc || isActiveFilterPs4 || isActiveFilterXone || isActiveFilterFav){
-            isActiveFilterPc = false
-            isActiveFilterPs4 = false
-            isActiveFilterXone = false
-            isActiveFilterFav = false
-            addNewListToAdapter(safeRecyclerList)
-            deColorAllFiltrButton()
-        }
+        deactivateFilters()
         when {
             isActiveFilter -> {
                 isActiveFilter = false
 
             }
             filtrName == "Fav" -> {
-                safeRecyclerList = listAdapter.getList()
                 isActiveFilter = true
                 addNewListToAdapter(listAdapter.getFavList())
                 buttonResource.setTextColor(Color.parseColor("#FFFFFF"))
                 buttonResource.setBackgroundResource(R.drawable.button_circle_corner_active)
             }
             else -> {
-                val actualList = listAdapter.getList()
-                safeRecyclerList = actualList
+                val actualList = listViewModel.getProductList()
                 isActiveFilter = true
                 val newList = ArrayList<Game>()
                 for(item in actualList){
@@ -122,6 +111,17 @@ class MainFragment : Fragment() {
         }
     }
 
+    private fun deactivateFilters(){
+        if(isActiveFilterPc || isActiveFilterPs4 || isActiveFilterXone || isActiveFilterFav){
+            isActiveFilterPc = false
+            isActiveFilterPs4 = false
+            isActiveFilterXone = false
+            isActiveFilterFav = false
+            addNewListToAdapter(listViewModel.getProductList())
+            deColorAllFiltrButton()
+        }
+    }
+
     private fun checkEmptyListToVisibilityList(){
         if(listAdapter.getList().isEmpty()){
             getInvisibleRecycler()
@@ -131,13 +131,12 @@ class MainFragment : Fragment() {
     }
 
     private fun deleteItemFromList(id: Int){
-        var position: Int = 0
-        for(item in safeRecyclerList){
+        val actualList = listViewModel.getProductList()
+        for (item in actualList){
             if(item.idItem == id){
-                safeRecyclerList.removeAt(position)
+                listViewModel.removeProduct(item)
                 return
             }
-            position++
         }
     }
 
@@ -192,8 +191,8 @@ class MainFragment : Fragment() {
                 val position: Int = viewHolder.adapterPosition
                 val idItem: Int = listAdapter.getGameId(position)
                 deleteItemFromList(idItem)
-                val adapter = recycler_view.adapter as ShopListRecyclerAdapter
-                adapter.removeAt(position)
+                addNewListToAdapter(listViewModel.getProductList())
+                deactivateFilters()
                 if(listAdapter.getList().isEmpty()){
                     getInvisibleRecycler()
                 }
