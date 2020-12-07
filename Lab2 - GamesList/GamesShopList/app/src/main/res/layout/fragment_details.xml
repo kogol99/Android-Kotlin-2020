@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".productDetails.DetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/IV_background_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="400dp"
+                    android:contentDescription="TODO"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/example_background" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/CV_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="316dp"
+                    android:layout_marginTop="352dp"
+                    app:cardBackgroundColor="#03764d"
+                    app:cardCornerRadius="40dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/TV_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="27dp"
+                            android:text="Farming Simulator 19"
+                            android:textColor="#FFFFFF"
+                            android:textSize="23sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/TV_platform"
+                            android:layout_width="300dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Platforma: PC"
+                            android:textColor="#FFFFFF"
+                            app:layout_constraintStart_toStartOf="@+id/TV_title"
+                            app:layout_constraintTop_toBottomOf="@+id/TV_title" />
+
+                        <TextView
+                            android:id="@+id/TV_category"
+                            android:layout_width="300dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="5dp"
+                            android:text="Kategoria: Symulatory"
+                            android:textColor="#FFFFFF"
+                            app:layout_constraintStart_toStartOf="@+id/TV_platform"
+                            app:layout_constraintTop_toBottomOf="@+id/TV_platform" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="325dp"
+                    android:layout_marginEnd="40dp"
+                    app:cardBackgroundColor="#ff8730"
+                    app:cardCornerRadius="40dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/TV_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="15dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="98,42 zł"
+                            android:textColor="#FFFFFF"
+                            android:textSize="25sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="490dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    app:cardCornerRadius="40dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/ViewPagerNav"
+                        android:name="androidx.navigation.fragment.NavHostFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="40dp"
+                        app:defaultNavHost="true"
+                        app:navGraph="@navigation/my_nav" />
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

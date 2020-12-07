@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">GamesShopList</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- LOREM -->
+    <string name="lorem_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pharetra imperdiet eros, quis rhoncus neque auctor vitae. Nunc mauris libero, facilisis eu posuere in, consectetur eget mi. Integer ligula elit, dignissim quis viverra eget, mattis sed eros. In id accumsan sem. In egestas finibus ornare. In placerat ornare augue non ultrices. Donec vehicula, ligula eu feugiat sodales, sapien metus convallis sapien, quis tempor ex mauris ac ipsum. Ut arcu risus, laoreet nec tincidunt sit amet, vehicula quis turpis. In ac interdum augue. Cras ac lacus venenatis, pellentesque orci eget, pharetra nisl. Nullam mattis diam quam, eu tincidunt tortor volutpat vitae. Cras dictum erat id elit condimentum, in sagittis orci hendrerit.</string>
+    <string name="lorem_short">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pharetra imperdiet eros, quis rhoncus neque auctor vitae.</string>
+
+    <!-- MAIN FRAGMENT -->
+    <string name="fav_button_before">Fav?</string>
+    <string name="fav_button_after">Fav!</string>
+    <string name="favourite_main_button">FAVOURITE</string>
+    <string name="empty_list">Ojejku! Ta lista jest pusta…</string>
+    <string name="xone_main_button">XONE</string>
+    <string name="ps4_main_button">PS4</string>
+    <string name="pc_main_button">PC</string>
+    <string name="platform_display_string">Platforma:</string>
+    <string name="category_display_string">Kateogira:</string>
+
+    <!-- DETAILS FRAGMENT -->
+    <string name="game_platform">Platforma: </string>
+    <string name="game_category">Kategoria: </string>
+    <string name="currency">zł</string>
+
+    <!-- SCREEN NAV -->
+    <string name="first_card_product_details">Opis</string>
+    <string name="second_card_product_details">Galeria</string>
+    <string name="third_card_product_details">Wymagania</string>
+
+    <!-- THIRD SCREEN IN DETAILS -->
+    <string name="minimal_requirements">Minimalne wymagania systemowe:</string>
+    <string name="recommended_requirements">Rekomendowane wymagania systemowe:</string>
+    <string name="is_fav_main_text_button">FAV!</string>
+    <string name="not_fav_main_text_button">Fav?</string>
+</resources>

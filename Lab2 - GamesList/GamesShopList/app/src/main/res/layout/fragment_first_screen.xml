@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".productDetails.onboarding.tabs.DescriptionTab">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/TV_galery_first_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="@string/second_card_product_details"
+            android:textColor="@color/nonActive"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/TV_details_first_screen"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TV_descr_first_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="49dp"
+            android:text="@string/first_card_product_details"
+            android:textColor="@color/darkGreen"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/TV_galery_first_screen"
+            app:layout_constraintTop_toTopOf="@+id/TV_galery_first_screen" />
+
+        <TextView
+            android:id="@+id/TV_details_first_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/third_card_product_details"
+            android:textColor="@color/nonActive"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/TV_galery_first_screen" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/TV_first_screen_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:justificationMode="inter_word"
+        android:maxWidth="500dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:text="@string/lorem_long"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
