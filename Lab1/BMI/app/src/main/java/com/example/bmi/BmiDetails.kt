@@ -11,7 +11,7 @@ class BmiDetails : AppCompatActivity() {
         setContentView(R.layout.activity_bmi_details)
 
         val message = intent.getDoubleExtra(EXTRA_MESSAGE, 0.0)
-        val textView = findViewById<TextView>(R.id.TV_Bmi_text).apply {
+        findViewById<TextView>(R.id.TV_Bmi_text).apply {
             text = message.toString()
         }
         matchContent(message)
@@ -19,36 +19,36 @@ class BmiDetails : AppCompatActivity() {
 
     private fun matchContent(bmiValue: Double){
         when {
-            bmiValue < 16 -> {
-                IV_Bmi_image.setImageResource(R.drawable.poziom_1)
+            bmiValue < BmiRanges.verySeverlyUnderweightUpperLevel -> {
+                IV_Bmi_image.setImageResource(R.drawable.level_1)
                 TV_Bmi_Description.text = getString(R.string.bmi_16)
             }
-            bmiValue >= 16 && bmiValue < 17 -> {
-                IV_Bmi_image.setImageResource(R.drawable.poziom_1)
+            bmiValue >= BmiRanges.severelyUnderweightLowerLevel && bmiValue < BmiRanges.severelyUnderweightUpperLevel -> {
+                IV_Bmi_image.setImageResource(R.drawable.level_1)
                 TV_Bmi_Description.text = getString(R.string.bmi_16_17)
             }
-            bmiValue >= 17 && bmiValue < 18.5 -> {
-                IV_Bmi_image.setImageResource(R.drawable.poziom_2)
+            bmiValue >= BmiRanges.underweightLowerLevel && bmiValue < BmiRanges.underweightUpperLevel -> {
+                IV_Bmi_image.setImageResource(R.drawable.level_2)
                 TV_Bmi_Description.text = getString(R.string.bmi_17_185)
             }
-            bmiValue >= 18.5 && bmiValue < 25 -> {
-                IV_Bmi_image.setImageResource(R.drawable.poziom_3)
+            bmiValue >= BmiRanges.normalLowerLevel && bmiValue < BmiRanges.normalUpperLevel -> {
+                IV_Bmi_image.setImageResource(R.drawable.level_3)
                 TV_Bmi_Description.text = getString(R.string.bmi_185_25)
             }
-            bmiValue >= 25 && bmiValue < 30 -> {
-                IV_Bmi_image.setImageResource(R.drawable.poziom_4)
+            bmiValue >= BmiRanges.overweightLowerLevel && bmiValue < BmiRanges.overweightUpperLevel -> {
+                IV_Bmi_image.setImageResource(R.drawable.level_4)
                 TV_Bmi_Description.text = getString(R.string.bmi_25_30)
             }
-            bmiValue >= 30 && bmiValue < 35 -> {
-                IV_Bmi_image.setImageResource(R.drawable.poziom_5)
+            bmiValue >= BmiRanges.obeseClassILowerLevel && bmiValue < BmiRanges.obeseClassIUpperLevel -> {
+                IV_Bmi_image.setImageResource(R.drawable.level_5)
                 TV_Bmi_Description.text = getString(R.string.bmi_30_35)
             }
-            bmiValue >= 35 && bmiValue < 40 -> {
-                IV_Bmi_image.setImageResource(R.drawable.poziom_6)
+            bmiValue >= BmiRanges.obeseClassIILowerLevel && bmiValue < BmiRanges.obeseClassIIUpperLevel -> {
+                IV_Bmi_image.setImageResource(R.drawable.level_6)
                 TV_Bmi_Description.text = getString(R.string.bmi_35_40)
             }
-            bmiValue >= 40 -> {
-                IV_Bmi_image.setImageResource(R.drawable.poziom_6)
+            bmiValue >= BmiRanges.obeseClassIIILowerLevel -> {
+                IV_Bmi_image.setImageResource(R.drawable.level_6)
                 TV_Bmi_Description.text = getString(R.string.bmi_40)
             }
         }
