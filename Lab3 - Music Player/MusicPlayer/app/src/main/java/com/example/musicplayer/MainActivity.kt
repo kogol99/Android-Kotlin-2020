@@ -1,18 +1,37 @@
 package com.example.musicplayer
 
-import android.media.MediaParser
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.provider.MediaStore
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.annotation.RawRes
+import androidx.appcompat.app.AppCompatActivity
+import java.io.File
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var runnable: Runnable
     private var handler = Handler()
+    val list_of_track = mapOf(0 to R.raw.headandheart,1 to R.raw.head_shoulders_hnees_and_toes,
+            2 to R.raw.hollywood,3 to R.raw.lonely,4 to R.raw.lovefool, 5 to R.raw.whats_love_got_to_do_with_it)
+    val details_of_track =
+            mapOf("headandheart" to mapOf("title" to "Head & Heart","author" to "MNEK / Joel Corry","cover" to R.drawable.headandheart),
+            "head_shoulders_hnees_and_toes" to mapOf("title" to "Head Shoulders Knees & Toes","author" to "Ofenbach / Quarterhead / Norma Jean Martine","cover" to R.drawable.head_shoulders_hnees_and_toes),
+            "hollywood" to mapOf("title" to "Hollywood","author" to "LA Vision / Gigi D'Agostino","cover" to R.drawable.hollywood),
+            "lovefool" to mapOf("title" to "Lovefool","author" to "twocolors","cover" to R.drawable.lovefool),
+            "whats_love_got_to_do_with_it" to mapOf("title" to "What's Love Got to Do with It","author" to "Tina Turner / Kygo","cover" to R.drawable.whats_love_got_to_do_with_it))
+    var actual_track = 0
+    val max_track = list_of_track.size
+    lateinit var mediaplayer: MediaPlayer
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +45,8 @@ class MainActivity : AppCompatActivity() {
         val fast_forward_button = findViewById<ImageView>(R.id.fastforward_btn)
 
 
-        val mediaplayer = MediaPlayer.create(this,R.raw.headandheart)
+
+        mediaplayer = MediaPlayer.create(this, list_of_track[actual_track % list_of_track.size]!!)
         seekbar_sb.progress = 0
         seekbar_sb.max = mediaplayer.duration
         total_time.text = mediaplayer.duration.toString()
@@ -59,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
         seekbar_sb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, postion: Int, changed: Boolean) {
-                if(changed){
+                if (changed) {
                     mediaplayer.seekTo(postion)
                 }
             }
@@ -80,15 +100,55 @@ class MainActivity : AppCompatActivity() {
             var remainingTime = createTimeLabel(mediaplayer.duration - mediaplayer.currentPosition)
             total_time.text = remainingTime
 
+            /*if(mediaplayer.currentPosition == mediaplayer.duration){
+                newTrack()
+            }*/
+
             handler.postDelayed(runnable, 50)
         }
         handler.postDelayed(runnable, 50)
 
         mediaplayer.setOnCompletionListener {
-            play_button.setImageResource(R.drawable.play)
-            seekbar_sb.progress = 0
+            newTrack()
+        }
+    }
+
+    fun newTrack(){
+        val track_title = findViewById<TextView>(R.id.track_title_TV)
+        val track_author = findViewById<TextView>(R.id.track_author_TV)
+        val trakc_cover = findViewById<ImageView>(R.id.track_cover_IV)
+        val seekbar_sb = findViewById<SeekBar>(R.id.seekBar)
+        val total_time = findViewById<TextView>(R.id.righttime_TV)
+
+        actual_track += 1
+        if(mediaplayer.isPlaying) {
+            mediaplayer.stop()
+        }
+        val new_track = list_of_track[actual_track % list_of_track.size]!!
+        val name_of_track = resources.getResourceEntryName(new_track)
+        mediaplayer = MediaPlayer.create(this,new_track)
+        mediaplayer.setOnCompletionListener {
+            newTrack()
         }
 
+        //mediaplayer.prepare()
+        seekbar_sb.progress = 0
+        seekbar_sb.max = mediaplayer.duration
+        total_time.text = mediaplayer.duration.toString()
+        track_title.text = details_of_track[name_of_track]?.get("title").toString()
+        track_author.text = details_of_track[name_of_track]?.get("author").toString()
+        trakc_cover.setImageDrawable(resources.getDrawable(details_of_track[name_of_track]?.get("cover").toString().toInt()))
+
+        mediaplayer.start()
+    }
+
+    fun playSound(@RawRes rawResId: Int) {
+        val assetFileDescriptor = this.resources.openRawResourceFd(rawResId) ?: return
+        mediaplayer.run {
+            reset()
+            setDataSource(assetFileDescriptor.fileDescriptor, assetFileDescriptor.startOffset, assetFileDescriptor.declaredLength)
+            prepareAsync()
+        }
     }
 
     fun createTimeLabel(time: Int): String {

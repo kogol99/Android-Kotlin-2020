@@ -8,16 +8,18 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/track_title_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:maxLines="1"
         android:text="Head Heart"
         android:textColor="#324356"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -41,8 +43,22 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.85" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"/>
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/track_cover_IV"
         android:layout_width="wrap_content"
         android:background="#4e6988"
         android:paddingBottom="1dp"
@@ -56,16 +72,16 @@
         android:layout_height="0dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/track_author_TV"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_marginTop="20dp"
         android:text="MNEK / Joel Corry"
         android:textColor="#324356"
         android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="@+id/track_title_TV"
+        app:layout_constraintStart_toStartOf="@+id/track_title_TV"
+        app:layout_constraintTop_toBottomOf="@+id/track_title_TV" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -79,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/track_cover_IV" />
 
     <TextView
         android:id="@+id/righttime_TV"
