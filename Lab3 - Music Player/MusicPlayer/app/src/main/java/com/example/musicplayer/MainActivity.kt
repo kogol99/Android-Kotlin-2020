@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             "hollywood" to mapOf("title" to "Hollywood","author" to "LA Vision / Gigi D'Agostino","cover" to R.drawable.hollywood),
             "lovefool" to mapOf("title" to "Lovefool","author" to "twocolors","cover" to R.drawable.lovefool),
             "whats_love_got_to_do_with_it" to mapOf("title" to "What's Love Got to Do with It","author" to "Tina Turner / Kygo","cover" to R.drawable.whats_love_got_to_do_with_it))
-    var actual_track = 0
+    var actual_track = -1
     val max_track = list_of_track.size
     lateinit var mediaplayer: MediaPlayer
 
@@ -43,13 +43,12 @@ class MainActivity : AppCompatActivity() {
         val total_time = findViewById<TextView>(R.id.righttime_TV)
         val rewind_button = findViewById<ImageView>(R.id.rewind_btn)
         val fast_forward_button = findViewById<ImageView>(R.id.fastforward_btn)
+        val next_track = findViewById<ImageView>(R.id.nexttrack_btn)
+        val prevoius_track = findViewById<ImageView>(R.id.previoustrack_btn)
 
 
 
-        mediaplayer = MediaPlayer.create(this, list_of_track[actual_track % list_of_track.size]!!)
-        seekbar_sb.progress = 0
-        seekbar_sb.max = mediaplayer.duration
-        total_time.text = mediaplayer.duration.toString()
+        newTrack(true)
 
         play_button.setOnClickListener {
             if(!mediaplayer.isPlaying){
@@ -77,6 +76,16 @@ class MainActivity : AppCompatActivity() {
                 mediaplayer.seekTo(mediaplayer.duration - 1)
             }
         }
+
+        next_track.setOnClickListener {
+            newTrack(true)
+        }
+
+        prevoius_track.setOnClickListener{
+            newTrack(false)
+        }
+
+
         seekbar_sb.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, postion: Int, changed: Boolean) {
                 if (changed) {
@@ -107,39 +116,51 @@ class MainActivity : AppCompatActivity() {
             handler.postDelayed(runnable, 50)
         }
         handler.postDelayed(runnable, 50)
-
-        mediaplayer.setOnCompletionListener {
-            newTrack()
-        }
     }
 
-    fun newTrack(){
+    fun newTrack(next: Boolean){
         val track_title = findViewById<TextView>(R.id.track_title_TV)
         val track_author = findViewById<TextView>(R.id.track_author_TV)
         val trakc_cover = findViewById<ImageView>(R.id.track_cover_IV)
         val seekbar_sb = findViewById<SeekBar>(R.id.seekBar)
         val total_time = findViewById<TextView>(R.id.righttime_TV)
+        val play_button = findViewById<ImageView>(R.id.play_btn)
 
-        actual_track += 1
-        if(mediaplayer.isPlaying) {
-            mediaplayer.stop()
+        if(next){
+            actual_track += 1
+        } else {
+            actual_track -= 1
+        }
+
+        if(this::mediaplayer.isInitialized) {
+            if(mediaplayer.isPlaying){
+                mediaplayer.stop()
+            }
         }
         val new_track = list_of_track[actual_track % list_of_track.size]!!
         val name_of_track = resources.getResourceEntryName(new_track)
         mediaplayer = MediaPlayer.create(this,new_track)
         mediaplayer.setOnCompletionListener {
-            newTrack()
+            newTrack(true)
         }
 
         //mediaplayer.prepare()
         seekbar_sb.progress = 0
         seekbar_sb.max = mediaplayer.duration
         total_time.text = mediaplayer.duration.toString()
-        track_title.text = details_of_track[name_of_track]?.get("title").toString()
-        track_author.text = details_of_track[name_of_track]?.get("author").toString()
-        trakc_cover.setImageDrawable(resources.getDrawable(details_of_track[name_of_track]?.get("cover").toString().toInt()))
+        if(details_of_track[name_of_track] != null){
+            track_title.text = details_of_track[name_of_track]?.get("title").toString()
+            track_author.text = details_of_track[name_of_track]?.get("author").toString()
+            trakc_cover.setImageDrawable(resources.getDrawable(details_of_track[name_of_track]?.get("cover").toString().toInt()))
+        }
+        else {
+            track_title.text = name_of_track
+            track_author.text = ""
+            trakc_cover.setImageDrawable(resources.getDrawable(R.drawable.default_cover))
+        }
 
         mediaplayer.start()
+        play_button.setImageResource(R.drawable.pause)
     }
 
     fun playSound(@RawRes rawResId: Int) {
