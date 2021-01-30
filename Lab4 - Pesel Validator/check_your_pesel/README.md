@@ -21,15 +21,15 @@ After starting the application, enter the Pesel number that you want to check. T
 
 Main
 
-![alt text](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/Main.png?raw=true)
+![main](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/Main.png?raw=true)
 
 Entered data
 
-![alt text](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/CorrectChecksum.png?raw=true)
-![alt text](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/InvalidChecksum.png?raw=true)
+![correct_checksum](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/CorrectChecksum.png?raw=true)
+![invalid_checksum](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/InvalidChecksum.png?raw=true)
 
 Errors
 
-![alt text](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/InvalidDayError.png?raw=true)
-![alt text](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/InvalidLengthError.png?raw=true)
-![alt text](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/InvalidMonthError.png?raw=true)
+![invalid_day_error](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/InvalidDayError.png?raw=true)
+![invalid_length_error](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/InvalidLengthError.png?raw=true)
+![invalid_month_error](https://github.com/kogol99/Android-Kotlin-2020/blob/main/Lab4%20-%20Pesel%20Validator/check_your_pesel/screenshot/InvalidMonthError.png?raw=true)
