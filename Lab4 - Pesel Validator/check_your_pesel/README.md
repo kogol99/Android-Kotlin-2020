@@ -4,10 +4,12 @@
  - date of birth
  - gender
  - whether the checksum is correct
+ 
+ It is possible to correctly check the information contained in the Pesel number in the years 1900 - 2199.
 
 ### Required for the project to run
 
-phone with Android or iOS
+Phone with Android or iOS.
 
 ## Usage
 
