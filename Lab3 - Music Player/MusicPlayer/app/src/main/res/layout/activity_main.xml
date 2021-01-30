@@ -69,7 +69,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/headandheart"
-        android:layout_height="0dp" />
+        android:layout_height="0dp"
+        android:contentDescription="@string/active_button" />
 
     <TextView
         android:id="@+id/track_author_TV"
@@ -127,7 +128,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
-        app:srcCompat="@drawable/play" />
+        app:srcCompat="@drawable/play"
+        android:contentDescription="@string/active_button" />
 
     <ImageView
         android:id="@+id/rewind_btn"
@@ -137,7 +139,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/play_btn"
         app:layout_constraintEnd_toStartOf="@+id/play_btn"
         app:layout_constraintTop_toTopOf="@+id/play_btn"
-        app:srcCompat="@drawable/rewind" />
+        app:srcCompat="@drawable/rewind"
+        android:contentDescription="@string/active_button" />
 
     <ImageView
         android:id="@+id/fastforward_btn"
@@ -147,7 +150,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/play_btn"
         app:layout_constraintStart_toEndOf="@+id/play_btn"
         app:layout_constraintTop_toTopOf="@+id/play_btn"
-        app:srcCompat="@drawable/fastforward" />
+        app:srcCompat="@drawable/fastforward"
+        android:contentDescription="@string/active_button" />
 
     <ImageView
         android:id="@+id/nexttrack_btn"
@@ -157,7 +161,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fastforward_btn"
         app:layout_constraintTop_toTopOf="@+id/fastforward_btn"
-        app:srcCompat="@drawable/nexttrack" />
+        app:srcCompat="@drawable/nexttrack"
+        android:contentDescription="@string/active_button" />
 
     <ImageView
         android:id="@+id/previoustrack_btn"
@@ -167,6 +172,7 @@
         app:layout_constraintEnd_toStartOf="@+id/rewind_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rewind_btn"
-        app:srcCompat="@drawable/previoustrack" />
+        app:srcCompat="@drawable/previoustrack"
+        android:contentDescription="@string/active_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

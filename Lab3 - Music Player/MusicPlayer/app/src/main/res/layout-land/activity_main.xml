@@ -75,8 +75,6 @@
         android:maxHeight="500dp"
         android:paddingBottom="1dp"
         android:scaleType="fitXY"
-        app:flow_horizontalAlign="center"
-        app:flow_verticalAlign="center"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
